@@ -14,7 +14,7 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
+        url: jdbc:mysql://10.10.10.81:3306/ag_dict_bak?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: root
         password: 123456
         # 使用druid数据源
@@ -36,12 +36,12 @@ spring:
             maxOpenPreparedStatements: 20
     redis:
         database: 1
-        host: ${REDIS_HOST:10.0.13.152}
+        host: ${REDIS_HOST:10.10.10.81}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-        host: localhost
+        host: 10.10.10.81
         port: 5672
         username: rabbitadmin
         password: 123456
@@ -57,15 +57,15 @@ eureka:
         statusPageUrlPath: /info
         healthCheckUrlPath: /health
         # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
-        prefer-ip-address: true
-        ip-address: localhost
+	prefer-ip-address: true
+        ip-address: 10.10.10.152
         leaseRenewalIntervalInSeconds: 1
         leaseExpirationDurationInSeconds: 2
     client:
         serviceUrl:
 #            defaultZone: http://localhost:8761/eureka/
                     # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
-            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+            defaultZone: http://${EUREKA_HOST:10.10.10.152}:${EUREKA_PORT:8761}/eureka/
 
 #请求和响应GZIP压缩支持
 feign:
