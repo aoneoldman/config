@@ -43,9 +43,7 @@ spring:
     sleuth:
         sampler:
             percentage: 1
-     cloud:
-        inetutils:
-            preferred-networks: ${NETWORKS_WD:10.255.0}
+  
 mybatis:
     basepackage: com.github.wxiaoqi.security.auth.mapper
     xmlLocation: classpath:mapper/**/*.xml

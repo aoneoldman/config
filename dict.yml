@@ -51,11 +51,7 @@ spring:
     sleuth:
       sampler:
         percentage: 1
-     cloud:
-        inetutils:
-            preferred-networks: ${NETWORKS_WD:10.255.0}
-
-
+  
 #请求和响应GZIP压缩支持
 feign:
   httpclient:

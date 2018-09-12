@@ -20,9 +20,7 @@ spring:
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
-    cloud:
-        inetutils:
-            preferred-networks: ${NETWORKS_WD:10.255.0}
+ 
     http:
       multipart:
         max-file-size: 10Mb
