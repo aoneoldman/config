@@ -14,9 +14,9 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: dict
-        url: jdbc:mysql://10.10.11.81:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
-        username: root
-        password: 123456
+        url: jdbc:mysql://rm-2ze49f7ouzmbv7y01.mysql.rds.aliyuncs.com:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
+        username: bw_zhywxt
+        password: Bw_1qaz2wsx
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
@@ -36,20 +36,24 @@ spring:
             maxOpenPreparedStatements: 20
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.11.81}
+        host: ${REDIS_HOST:10.99.10.103}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-        host: 10.10.11.81
-        port: 5672
+#        host: ${RABBIT_MQ_HOST:10.99.10.103}
+#        port:  ${RABBIT_MQ_PORT:5672}
+        addresses: ${RABBITMQ_ADDRESS:10.99.10.103:5672}
         username: rabbitadmin
         password: 123456
     zipkin:
         enabled: true
     sleuth:
-        sampler:
-            percentage: 1
+      sampler:
+        percentage: 1
+     cloud:
+        inetutils:
+            preferred-networks: ${NETWORKS_WD:10.255.0}
 
 
 #请求和响应GZIP压缩支持

@@ -10,20 +10,23 @@ spring:
           time-zone: GMT+8
           default-property-inclusion: non_null
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:10.10.11.81}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false
-    username: root
-    password: 123456
+    url: jdbc:mysql://${MYSQL_HOST:rm-2ze49f7ouzmbv7y01.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false
+    username: bw_zhywxt
+    password: Bw_1qaz2wsx
     driver-class-name: com.mysql.jdbc.Driver
   mvc:
     view:
       prefix: /WEB-INF/pages/
       suffix: .jsp
-  redis:
-          database: 1
-          host: ${REDIS_HOST:10.10.11.81}
-          port: ${REDIS_PORT:6379}
-          pool:
-              max-active: 20
+   redis:
+        database: 1
+        host: ${REDIS_HOST:10.99.10.103}
+        port: ${REDIS_PORT:6379}
+        pool:
+            max-active: 20
+   cloud:
+        inetutils:
+            preferred-networks: ${NETWORKS_WD:10.255.0}
 
 #热部署
 # devtools:
