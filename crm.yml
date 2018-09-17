@@ -4,10 +4,9 @@ logging:
         com.bwzcpt.security.crm: DEBUG
 server:
     port: 8767
-
 spring:
     application:
-        name: bwcrm
+        name: bw-crm
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
         time-zone: GMT+8
