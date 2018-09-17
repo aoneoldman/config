@@ -7,7 +7,7 @@ server:
 
 spring:
     application:
-        name: ace-admin
+        name: bwcrm
     jackson:
         date-format: yyyy-MM-dd HH:mm:ss
         time-zone: GMT+8
