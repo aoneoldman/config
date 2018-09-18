@@ -10,21 +10,25 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.99.10.103}
+        host: ${REDIS_HOST:10.10.10.101}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-#        host: ${RABBIT_MQ_HOST:10.99.10.103}
+#        host: ${RABBIT_MQ_HOST:10.10.11.82}
 #        port:  ${RABBIT_MQ_PORT:5672}
-        addresses: ${RABBITMQ_ADDRESS:10.99.10.103:5672}
+        addresses: ${RABBITMQ_ADDRESS:10.10.10.101:5672}
         username: rabbitadmin
         password: 123456
     zipkin:
-        enabled: true
+      enabled: true
     sleuth:
       sampler:
         percentage: 1
+    cloud:
+      inetutils:
+        preferred-networks: ${NETWORKS_WD:10.255.0}
+#        preferred-networks: ${NETWORKS_WD:10.10.0}
  
     http:
       multipart:
