@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.security.device: DEBUG
 server:
-    port: 8768
+    port: 9810
 
 https:
     port: 8443
