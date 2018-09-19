@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.bwzcpt.security.crm: DEBUG
 server:
-    port: 8767
+    port: 9807
 
 spring:
     application:

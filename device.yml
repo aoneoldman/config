@@ -6,7 +6,7 @@ server:
     port: 8768
 
 https:
-    port: 8443
+    port: 9810
     ssl:
         key-store: classpath:keystore.p12
         key-password: 123456
