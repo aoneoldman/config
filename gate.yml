@@ -68,7 +68,7 @@ zuul:
     repository: REDIS #REDIS, JPA, IN_MEMORY
     behind-proxy: true
     default-policy: #optional - will apply unless specific policy exists
-      limit: 200
+      limit: 6000
       refresh-interval: 60 #default value (in seconds)
       type: #optional
         - user
