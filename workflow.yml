@@ -10,7 +10,7 @@ spring:
     database: MYSQL
   datasource:
     name: workflow
-    url: jdbc:mysql://10.10.11.81:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://10.10.99.104:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
     # 使用druid数据源
@@ -32,7 +32,7 @@ spring:
         maxOpenPreparedStatements: 20
   redis:
     database: 1
-    host: ${REDIS_HOST:10.10.11.81}
+    host: ${REDIS_HOST:10.10.99.104}
     port: ${REDIS_PORT:6379}
     pool:
         max-active: 20
