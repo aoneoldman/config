@@ -11,7 +11,7 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: admin
-        url: jdbc:mysql://${MYSQL_HOST:rm-2ze49f7ouzmbv7y01.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/ag_admin?useUnicode=true&characterEncoding=UTF8&useSSL=false&useAffectedRows=true
+        url: jdbc:mysql://${MYSQL_HOST:rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/ag_admin?useUnicode=true&characterEncoding=UTF8&useSSL=false&useAffectedRows=true
         username: bw_zhywxt
         password: Bw_1qaz2wsx
         # 使用druid数据源

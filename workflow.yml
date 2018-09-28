@@ -10,7 +10,7 @@ spring:
     database: MYSQL
   datasource:
     name: workflow
-    url: jdbc:mysql://rm-2ze49f7ouzmbv7y01.mysql.rds.aliyuncs.com:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: bw_zhywxt
     password: Bw_1qaz2wsx
     # 使用druid数据源
