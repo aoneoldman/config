@@ -5,15 +5,6 @@ logging:
 server:
     port: 9810
 
-https:
-    port: 8443
-    ssl:
-        key-store: classpath:keystore.p12
-        key-password: 123456
-        key-store-password: 123456
-        keyStoreType: PKCS12
-        keyAlias: tomcat
-
 spring:
     application:
         name: ace-device
