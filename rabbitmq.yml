@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.bwzcpt.security.rabbit: DEBUG
 server:
-    port: 9809
+    port: 8711
 
 spring:
     application:

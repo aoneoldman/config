@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.security.dict: DEBUG
 server:
-    port: 9804
+    port: 9999
 
 spring:
     application:
