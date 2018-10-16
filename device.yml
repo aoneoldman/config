@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.security.device: DEBUG
 server:
-    port: 8768
+    port: 9810
 
 https:
     port: 8443
@@ -123,5 +123,5 @@ auth:
     limit-expire: 1440 # 一天过去,单位分钟
   client:
     id: ace-device
-    secret: 123566
+    secret: 123456
     token-header: client-token
