@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.security.dict: DEBUG
 server:
-    port: 9999
+    port: 9804
 
 spring:
     application:
@@ -14,7 +14,7 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: test
-        url: jdbc:mysql://localhost:3306/ag_dict_new?useUnicode=true&characterEncoding=UTF8&useSSL=false
+        url: jdbc:mysql://localhost:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: root
         password: 123456
         # 使用druid数据源
@@ -65,7 +65,7 @@ eureka:
         serviceUrl:
 #            defaultZone: http://localhost:8761/eureka/
                     # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
-            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:9801}/eureka/
 
 #请求和响应GZIP压缩支持
 feign:
