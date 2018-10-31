@@ -30,7 +30,7 @@ spring:
         max-request-size: 10Mb
 
 server:
-    port: 8765 #启动端口
+    port: 9806 #启动端口
 
 gate:
   # 开发不进行权限校验的路径
