@@ -118,3 +118,13 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
+sms:
+  dingtalk:
+    webhook: https://oapi.dingtalk.com/robot/send?access_token=f2b6e20ff209ab2836119241441e9809d383c93978f5bc9e15b1fe0affe00cd1
+  aliyun:
+    accessKey: LTAIwSKuYFlrGjf0
+    secretKey: XD5O8w3Dff7pWkGoakiSPlKfFSJBfb
+    channels:
+      loginCodeChannel: SMS_149990052
+      serviceStatusChange: SMS_134310585
+      findPasswordChannel: SMS_149990049
