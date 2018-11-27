@@ -20,7 +20,7 @@ spring:
       suffix: .jsp
   redis:
           database: 1
-          host: ${REDIS_HOST:10.99.10.104}
+          host: ${REDIS_HOST:10.99.10.103}
           port: ${REDIS_PORT:6379}
           pool:
               max-active: 20
