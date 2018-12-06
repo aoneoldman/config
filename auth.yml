@@ -12,7 +12,7 @@ spring:
         pool:
             max-active: 20
     datasource:
-      name: auth
+      name: test
       url: jdbc:mysql://${MYSQL_HOST:10.10.10.81}:${MYSQL_PORT:3306}/ag_auth?useUnicode=true&characterEncoding=UTF8&useSSL=false
       username: root
       password: 123456
@@ -42,6 +42,11 @@ spring:
     sleuth:
         sampler:
             percentage: 1
+    #data:
+    #  elasticsearch:
+    #    cluster-name: #默认即为 elasticsearch
+    #    cluster-nodes: 10.10.10.81:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+
 mybatis:
     basepackage: com.github.wxiaoqi.security.auth.mapper
     xmlLocation: classpath:mapper/**/*.xml
@@ -117,4 +122,4 @@ logging:
 #    org.springframework.security: DEBUG
 
 interface:
-  encryption: true
+  encryption: false

@@ -13,7 +13,7 @@ spring:
         time-zone: GMT+8
         default-property-inclusion: non_null
     datasource:
-        name: dict
+        name: test
         url: jdbc:mysql://10.10.10.81:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: root
         password: 123456
@@ -51,6 +51,30 @@ spring:
         sampler:
             percentage: 1
 
+# 配置数据库
+mybatis:
+    mapper-locations: "classpath*:mapper/*.xml"
+
+# 配置swagger
+swagger:
+    enabled: true
+    base-package: com.github.wxiaoqi.security.dict
+    title: ace-dict
+    version: 1.0.0.SNAPSHOT
+    description: 数据字典服务
+    contact:
+        name: admin
+
+# 配置用户认证和服务认证信息
+auth:
+  serviceId: ace-auth
+  user:
+    token-header: Authorization
+    limit-expire: 1440 # 一天过去,单位分钟
+  client:
+    id: ace-dict
+    secret: 123566
+    token-header: client-token
 
 #请求和响应GZIP压缩支持
 feign:
@@ -82,37 +106,12 @@ ribbon:
 hystrix:
   threadpool:
     default:
-            coreSize: 1000
-            maxQueueSize: 1000
-            queueSizeRejectionThreshold: 500
+      coreSize: 1000
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 500
   command:
     default:
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 50000
-
-# 配置数据库
-mybatis:
-    mapper-locations: "classpath*:mapper/*.xml"
-
-# 配置swagger
-swagger:
-    enabled: true
-    base-package: com.github.wxiaoqi.security.dict
-    title: ace-dict
-    version: 1.0.0.SNAPSHOT
-    description: 数据字典服务
-    contact:
-        name: admin
-
-# 配置用户认证和服务认证信息
-auth:
-  serviceId: ace-auth
-  user:
-    token-header: Authorization
-    limit-expire: 1440 # 一天过去,单位分钟
-  client:
-    id: ace-dict
-    secret: 123566
-    token-header: client-token
