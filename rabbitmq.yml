@@ -146,5 +146,5 @@ sms:
     secretKey: XD5O8w3Dff7pWkGoakiSPlKfFSJBfb
     channels:
       loginCodeChannel: SMS_149990052
-      serviceStatusChange: SMS_134310585
       findPasswordChannel: SMS_149990049
+      deviceProcurementChannel: SMS_152284140
