@@ -51,30 +51,6 @@ spring:
         sampler:
             percentage: 1
 
-# 配置数据库
-mybatis:
-    mapper-locations: "classpath*:mapper/*.xml"
-
-# 配置swagger
-swagger:
-    enabled: true
-    base-package: com.github.wxiaoqi.security.dict
-    title: ace-dict
-    version: 1.0.0.SNAPSHOT
-    description: 数据字典服务
-    contact:
-        name: admin
-
-# 配置用户认证和服务认证信息
-auth:
-  serviceId: ace-auth
-  user:
-    token-header: Authorization
-    limit-expire: 1440 # 一天过去,单位分钟
-  client:
-    id: ace-dict
-    secret: 123566
-    token-header: client-token
 
 #请求和响应GZIP压缩支持
 feign:
@@ -115,3 +91,27 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 50000
+	    # 配置数据库
+mybatis:
+    mapper-locations: "classpath*:mapper/*.xml"
+
+# 配置swagger
+swagger:
+    enabled: true
+    base-package: com.github.wxiaoqi.security.dict
+    title: ace-dict
+    version: 1.0.0.SNAPSHOT
+    description: 数据字典服务
+    contact:
+        name: admin
+
+# 配置用户认证和服务认证信息
+auth:
+  serviceId: ace-auth
+  user:
+    token-header: Authorization
+    limit-expire: 1440 # 一天过去,单位分钟
+  client:
+    id: ace-dict
+    secret: 123566
+    token-header: client-token
