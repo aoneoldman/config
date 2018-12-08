@@ -41,7 +41,8 @@ spring:
         pool:
             max-active: 20
     rabbitmq:
-        addresses: ${RABBIT_MQ_HOST:10.99.10.103:5672}
+        host: ${RABBIT_MQ_HOST:10.99.10.103}
+        port: ${RABBIT_MQ_PORT:5672}
         username: rabbitadmin
         password: 123456
     zipkin:
@@ -53,10 +54,55 @@ spring:
         multipart:
             max-file-size: 100MB
             max-request-size: 100MB
-
+    
 # 配置数据库
 mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
+
+
+#请求和响应GZIP压缩支持
+feign:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 120000
+  ConnectTimeout: 120000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+
+hystrix:
+  threadpool:
+    default:
+            coreSize: 1000
+            maxQueueSize: 1000
+            queueSizeRejectionThreshold: 500
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+          strategy: SEMAPHORE
+# txmanager地址
+tm:
+  manager:
+    url: http://127.0.0.1:8899/tx/manager/
 
 # 配置swagger
 swagger:
@@ -78,6 +124,6 @@ auth:
     id: bw-crm
     secret: 123456
     token-header: client-token
-
+    
 mapper:
   mappers: com.github.wxiaoqi.security.common.mapper.CommonMapper

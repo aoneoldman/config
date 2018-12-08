@@ -1,6 +1,11 @@
 server:
   port: 9808
+
 #debug: true
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.bw.activiti: DEBUG
 
 spring:
   application:
@@ -10,7 +15,7 @@ spring:
           time-zone: GMT+8
           default-property-inclusion: non_null
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false
+    url: jdbc:mysql://${MYSQL_HOST:rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;testOnBorrow=true
     username: bw_zhywxt
     password: Bw_1qaz2wsx
     driver-class-name: com.mysql.jdbc.Driver

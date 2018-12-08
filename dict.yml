@@ -13,7 +13,7 @@ spring:
         time-zone: GMT+8
         default-property-inclusion: non_null
     datasource:
-        name: dict
+        name: test
         url: jdbc:mysql://rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com:3306/ag_dict?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: bw_zhywxt
         password: Bw_1qaz2wsx
@@ -41,17 +41,17 @@ spring:
         pool:
             max-active: 20
     rabbitmq:
-#        host: ${RABBIT_MQ_HOST:10.99.10.103}
-#        port:  ${RABBIT_MQ_PORT:5672}
-        addresses: ${RABBITMQ_ADDRESS:10.99.10.103:5672}
+        host: 10.99.10.103
+        port: 5672
         username: rabbitadmin
         password: 123456
     zipkin:
         enabled: true
     sleuth:
-      sampler:
-        percentage: 1
-  
+        sampler:
+            percentage: 1
+
+
 #请求和响应GZIP压缩支持
 feign:
   httpclient:
@@ -82,16 +82,15 @@ ribbon:
 hystrix:
   threadpool:
     default:
-            coreSize: 1000
-            maxQueueSize: 1000
-            queueSizeRejectionThreshold: 500
+      coreSize: 1000
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 500
   command:
     default:
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 50000
-
 # 配置数据库
 mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
