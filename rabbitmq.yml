@@ -150,28 +150,24 @@ sms:
       #找回密码
       findPasswordChannel: SMS_149990049
       #设备采购
-      deviceProcurementChannel: SMS_152505274
-      #总号段审批
-      totalSegmentApprovalChannel: SMS_152505268
-      #子号段审批
-      subSegmentApprovalChannel: SMS_152505270
+      deviceProcurementChannel: SMS_152506311
+      #总号段申请
+      totalSegmentApprovalChannel: SMS_152505600
+      #子号段申请
+      subSegmentApprovalChannel: SMS_152511188
+      #测试号段申请
+      testSegmentApprovalChannel: SMS_152506310
       #项目申报
-      projectApplicationChannel: SMS_152505272
-      #新产品申请
-      newProductApplicationChannel: SMS_152510147
+      projectApplicationChannel: SMS_152506314
+      #产品申请
+      newProductApplicationChannel: SMS_152511191
       #符合性验证
-      complianceVerficationChannel: SMS_152510148
+      complianceVerficationChannel: SMS_152511193
       #问题工单
-      problemSheetChannel: SMS_152505275
-      #投诉工单
-      complaintSheetChannel: SMS_152505276
+      problemSheetChannel: SMS_152511189
       #安全码管理
       securityCodeManagementChannel: SMS_152510149
-      #培训管理
-      trainingManagementChannel: SMS_152510150
-      #月报管理
-      monthlyReportManagementChannel: SMS_152505277
       #服务派工
-      serviceWorkerChannel: SMS_152505278
-      #账号添加
-      addAccountChannel: SMS_152510152
+      serviceWorkerChannel: SMS_152506312
+      #账号通知
+      addAccountChannel: SMS_152505601
