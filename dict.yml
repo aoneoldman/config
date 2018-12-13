@@ -90,7 +90,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
 # 配置数据库
 mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
