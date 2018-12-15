@@ -1,0 +1,89 @@
+server:
+  port: 9808
+
+#debug: true
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.bw.activiti: DEBUG
+
+spring:
+  application:
+    name: ace-activiti
+  jackson:
+          date-format: yyyy-MM-dd HH:mm:ss
+          time-zone: GMT+8
+          default-property-inclusion: non_null
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;testOnBorrow=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  mvc:
+    view:
+      prefix: /WEB-INF/pages/
+      suffix: .jsp
+  redis:
+          database: 1
+          host: ${REDIS_HOST:10.0.13.152}
+          port: ${REDIS_PORT:6379}
+          pool:
+              max-active: 20
+
+#热部署
+# devtools:
+#   restart:
+#     enabled: true
+#     trigger-file: devtools.tg
+
+eureka:
+    instance:
+        statusPageUrlPath: /info
+        healthCheckUrlPath: /health
+        # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
+        prefer-ip-address: true
+        ip-address: localhost
+        leaseRenewalIntervalInSeconds: 5
+        leaseExpirationDurationInSeconds: 10
+    client:
+        serviceUrl:
+                    # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
+            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:9801}/eureka/
+
+#请求和响应GZIP压缩支持
+feign:
+  httpclient:
+    enabled: true
+  okhttp:
+    enabled: false
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 120000
+  ConnectTimeout: 120000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  OkToRetryOnAllOperations: false
+  NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+hystrix:
+  threadpool:
+    default:
+            coreSize: 1000
+            maxQueueSize: 1000
+            queueSizeRejectionThreshold: 500
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+
