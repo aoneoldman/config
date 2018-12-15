@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.bwzcpt.security.rabbit: DEBUG
 server:
-    port: 8711
+    port: 9809
 
 spring:
     application:
@@ -79,18 +79,6 @@ spring:
 mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
 
-eureka:
-    instance:
-        statusPageUrlPath: /info
-        healthCheckUrlPath: /health
-        # docker 部署开启
-        prefer-ip-address: true
-        ip-address: localhost
-        leaseRenewalIntervalInSeconds: 1
-        leaseExpirationDurationInSeconds: 2
-    client:
-        serviceUrl:
-            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
 
 #请求和响应GZIP压缩支持
 feign:
@@ -130,7 +118,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
           strategy: SEMAPHORE
 
 

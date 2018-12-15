@@ -51,22 +51,8 @@ mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
 
 server:
-    port: 8762
+    port: 9805
 
-eureka:
-    instance:
-        statusPageUrlPath: /info
-        healthCheckUrlPath: /health
-        # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
-        prefer-ip-address: true
-        ip-address: localhost
-        leaseRenewalIntervalInSeconds: 1
-        leaseExpirationDurationInSeconds: 2
-    client:
-        serviceUrl:
-#            defaultZone: http://localhost:8761/eureka/
-                    # docker 部署开启,记得将IP修改为部署所在服务器的外网IP
-            defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
 # 必须配置
 feign:
   httpclient:
@@ -94,7 +80,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 110000
+            timeoutInMilliseconds: 490000
 
 # 配置swagger
 swagger:
