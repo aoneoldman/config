@@ -74,8 +74,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 10000
-  ConnectTimeout: 10000
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
