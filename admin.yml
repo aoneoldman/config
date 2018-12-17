@@ -33,12 +33,12 @@ spring:
             maxOpenPreparedStatements: 20
     redis:
         database: 1
-        host: ${REDIS_HOST:10.0.13.152}
+        host: ${REDIS_HOST:192.168.99.104}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-      host: ${RABBIT_MQ_HOST:10.0.13.152}
+      host: ${RABBIT_MQ_HOST:192.168.99.104}
       port:  ${RABBIT_MQ_PORT:5672}
       username: rabbitadmin
       password: 123456
@@ -108,7 +108,7 @@ redis:
          maxActive: 300
          maxIdle: 100
          maxWait: 1000
-    host: ${REDIS_HOST:10.0.13.152}
+    host: ${REDIS_HOST:192.168.99.104}
     port: ${REDIS_PORT:6379}
     password:
     timeout: 2000
