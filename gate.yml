@@ -38,6 +38,9 @@ spring:
 
 server:
     port: 9806 #启动端口
+    tomcat:
+        max-threads: 500 # Maximum amount of worker threads.
+        min-spare-threads: 50 # Minimum amount of worker threads
 
 gate:
   # 开发不进行权限校验的路径
@@ -69,6 +72,9 @@ zuul:
   ignored-services: "*"
   sensitive-headers:
   prefix: /api #为zuul设置一个公共的前缀
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   ratelimit: # 网关限流
     key-prefix: gate_rate
     enabled: true
@@ -85,8 +91,8 @@ zuul:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 120000
-  ConnectTimeout: 120000
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
   OkToRetryOnAllOperations: false
@@ -106,7 +112,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 490000
+            timeoutInMilliseconds: 60000
 #          strategy: SEMAPHORE
 
 #请求和响应GZIP压缩支持

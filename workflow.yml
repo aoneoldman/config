@@ -1,5 +1,8 @@
 server:
   port: 8082
+    tomcat:
+        max-threads: 500 # Maximum amount of worker threads.
+        min-spare-threads: 50 # Minimum amount of worker threads
 
 spring:
   application:
@@ -56,8 +59,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 120000
-  ConnectTimeout: 120000
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
@@ -75,7 +78,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 490000
+            timeoutInMilliseconds: 60000
 
 # 配置swagger
 swagger:
