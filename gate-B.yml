@@ -37,7 +37,7 @@ spring:
     #    cluster-nodes: 10.10.10.81:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
 
 server:
-    port: 9806 #启动端口
+    port: 9826 #启动端口
     tomcat:
         max-threads: 500 # Maximum amount of worker threads.
         min-spare-threads: 50 # Minimum amount of worker threads

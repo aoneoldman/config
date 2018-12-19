@@ -1,5 +1,8 @@
 server:
-  port: 9812
+  port: 8082
+    tomcat:
+        max-threads: 500 # Maximum amount of worker threads.
+        min-spare-threads: 50 # Minimum amount of worker threads
 
 spring:
   application:
@@ -10,7 +13,7 @@ spring:
     database: MYSQL
   datasource:
     name: workflow
-    url: jdbc:mysql://10.10.11.81:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://10.10.10.81:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
     # 使用druid数据源
@@ -32,7 +35,7 @@ spring:
         maxOpenPreparedStatements: 20
   redis:
     database: 1
-    host: ${REDIS_HOST:10.10.11.81}
+    host: ${REDIS_HOST:10.10.10.81}
     port: ${REDIS_PORT:6379}
     pool:
         max-active: 20
@@ -56,8 +59,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 120000
-  ConnectTimeout: 120000
+  ReadTimeout: 30000
+  ConnectTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
@@ -75,7 +78,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 490000
+            timeoutInMilliseconds: 80000
 
 # 配置swagger
 swagger:

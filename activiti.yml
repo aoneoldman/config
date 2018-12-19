@@ -1,6 +1,13 @@
 server:
   port: 9808
+  tomcat:
+        max-threads: 500 # Maximum amount of worker threads.
+        min-spare-threads: 50 # Minimum amount of worker threads
 #debug: true
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.bw.activiti: DEBUG
 
 spring:
   application:
@@ -10,9 +17,9 @@ spring:
           time-zone: GMT+8
           default-property-inclusion: non_null
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:10.10.11.81}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false
-    username: root
-    password: 123456
+    url: jdbc:mysql://${MYSQL_HOST:rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;testOnBorrow=true
+    username: bw_zhywxt
+    password: Bw_1qaz2wsx
     driver-class-name: com.mysql.jdbc.Driver
   mvc:
     view:
@@ -20,7 +27,7 @@ spring:
       suffix: .jsp
   redis:
           database: 1
-          host: ${REDIS_HOST:10.10.11.81}
+          host: ${REDIS_HOST:10.99.10.103}
           port: ${REDIS_PORT:6379}
           pool:
               max-active: 20
@@ -49,8 +56,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 120000
-  ConnectTimeout: 120000
+  ReadTimeout: 30000
+  ConnectTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
@@ -67,5 +74,5 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 490000
+            timeoutInMilliseconds: 80000
 

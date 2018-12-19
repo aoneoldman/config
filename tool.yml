@@ -3,7 +3,10 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.oss: DEBUG
 server:
-    port: 9811
+    port: 9991
+    tomcat:
+        max-threads: 500 # Maximum amount of worker threads.
+        min-spare-threads: 50 # Minimum amount of worker threads
 
 spring:
     profiles:
@@ -16,7 +19,7 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.11.81}
+        host: ${REDIS_HOST:10.10.10.81}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
@@ -48,8 +51,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 120000
-  ConnectTimeout: 120000
+  ReadTimeout: 30000
+  ConnectTimeout: 60000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 0
   OkToRetryOnAllOperations: false
@@ -67,7 +70,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 490000
+            timeoutInMilliseconds: 80000
 
 # 配置swagger
 swagger:
