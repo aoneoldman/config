@@ -132,7 +132,7 @@ auth:
   serviceId: ace-auth
   user:
     token-header: Authorization
-    limit-expire: 1440 # 一天过去,单位分钟
+    limit-expire: 5 # 一天过去,单位分钟
   client:
     id: ace-rabbitmq
     secret: 123456
