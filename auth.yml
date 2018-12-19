@@ -7,13 +7,13 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.99.10.103}
+        host: ${REDIS_HOST:10.10.11.81}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     datasource:
       name: test
-      url: jdbc:mysql://${MYSQL_HOST:rm-2ze44680d6g4xsfg4.mysql.rds.aliyuncs.com}:${MYSQL_PORT:3306}/ag_auth?useUnicode=true&characterEncoding=UTF8&useSSL=false
+      url: jdbc:mysql://${MYSQL_HOST:10.10.11.81}:${MYSQL_PORT:3306}/ag_auth?useUnicode=true&characterEncoding=UTF8&useSSL=false
       username: bw_zhywxt
       password: Bw_1qaz2wsx
       # 使用druid数据源
@@ -33,7 +33,7 @@ spring:
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
     rabbitmq:
-      host: ${RABBIT_MQ_HOST:10.99.10.103}
+      host: ${RABBIT_MQ_HOST:10.10.11.81}
       port:  ${RABBIT_MQ_PORT:5672}
       username: rabbitadmin
       password: 123456
@@ -88,7 +88,7 @@ hystrix:
 
 jwt:
   token-header: Authorization
-  expire: 3600
+  expire: 120
   rsa-secret: xx1WET12^%3^(WE45
   user-service: ace-admin
 
@@ -96,7 +96,7 @@ client:
   id: ace-auth
   secret: 123456
   token-header: client-token
-  expire: 3600
+  expire: 120
   rsa-secret: x2318^^(*WRYQWR(QW&T
 
 redis:
