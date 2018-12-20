@@ -51,7 +51,7 @@ auth:
   serviceId: ace-auth
   user:
     token-header: Authorization
-    limit-expire: 5 #1天
+    limit-expire: 1440 #1天
   client:
     token-header: client-token
     id: ace-gate  #不填则默认读取spring.application.name
