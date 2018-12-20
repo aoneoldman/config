@@ -29,8 +29,8 @@ spring:
         percentage: 1
     http:
       multipart:
-        max-file-size: 10Mb
-        max-request-size: 10Mb
+        max-file-size: 100Mb
+        max-request-size: 100Mb
     #data:
     #  elasticsearch:
     #    cluster-name: #默认即为 elasticsearch
