@@ -39,12 +39,12 @@ spring:
             maxOpenPreparedStatements: 20
     redis:
         database: 1
-        host: ${REDIS_HOST:10.99.10.103}
+        host: ${REDIS_HOST:10.10.11.81}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-        host: ${RABBIT_MQ_HOST:10.99.10.103}
+        host: ${RABBIT_MQ_HOST:10.10.11.81}
         port: ${RABBIT_MQ_PORT:5672}
         username: rabbitadmin
         password: 123456
