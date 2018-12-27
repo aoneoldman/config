@@ -59,7 +59,7 @@ ribbon:
   ReadTimeout: 30000
   ConnectTimeout: 60000
   MaxAutoRetries: 0
-  MaxAutoRetriesNextServer: 0
+  MaxAutoRetriesNextServer: 1
   OkToRetryOnAllOperations: false
   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
@@ -74,5 +74,5 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 80000
+            timeoutInMilliseconds: 190000
 

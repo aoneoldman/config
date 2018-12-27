@@ -112,7 +112,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 80000
+            timeoutInMilliseconds: 190000
 #          strategy: SEMAPHORE
 
 #请求和响应GZIP压缩支持

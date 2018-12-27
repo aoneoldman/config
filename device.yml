@@ -106,7 +106,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 80000
+            timeoutInMilliseconds: 190000
 
 # 配置swagger
 swagger:
