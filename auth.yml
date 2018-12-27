@@ -87,6 +87,7 @@ jwt:
   token-header: Authorization
   expire: 3600
   rsa-secret: xx1WET12^%3^(WE45
+  uuid: ${random.value}
   user-service: ace-admin
 
 client:
