@@ -1,5 +1,5 @@
 server:
-  port: 9812
+  port: 8082
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
     database: MYSQL
   datasource:
     name: workflow
-    url: jdbc:mysql://10.10.10.101:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://10.10.10.81:3306/ag_workflow?useUnicode=true&characterEncoding=UTF8&useSSL=false
     username: root
     password: 123456
     # 使用druid数据源
@@ -31,16 +31,12 @@ spring:
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
   redis:
-        database: 1
-        host: ${REDIS_HOST:10.10.10.101}
-        port: ${REDIS_PORT:6379}
-        pool:
-            max-active: 20
+    database: 1
+    host: ${REDIS_HOST:10.10.10.81}
+    port: ${REDIS_PORT:6379}
+    pool:
+        max-active: 20
 
-   cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
 
 #请求和响应GZIP压缩支持
 feign:
@@ -79,7 +75,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
 
 # 配置swagger
 swagger:

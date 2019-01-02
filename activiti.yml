@@ -1,6 +1,11 @@
 server:
-  port: 9808
+  port: 9908
+
 #debug: true
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.bw.activiti: DEBUG
 
 spring:
   application:
@@ -10,7 +15,7 @@ spring:
           time-zone: GMT+8
           default-property-inclusion: non_null
   datasource:
-    url: jdbc:mysql://${10.10.10.101}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false
+    url: jdbc:mysql://${MYSQL_HOST:10.10.10.100}:${MYSQL_PORT:3306}/activiti?characterEncoding=utf8&amp;serverTimezone=UTC&useSSL=false&amp;autoReconnect=true&amp;failOverReadOnly=false&amp;testOnBorrow=true
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -19,16 +24,12 @@ spring:
       prefix: /WEB-INF/pages/
       suffix: .jsp
   redis:
-        database: 1
-        host: ${REDIS_HOST:10.10.10.101}
-        port: ${REDIS_PORT:6379}
-        pool:
-            max-active: 20
-   cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
- 
+          database: 1
+          host: ${REDIS_HOST:10.10.10.100}
+          port: ${REDIS_PORT:6379}
+          pool:
+              max-active: 20
+
 #热部署
 # devtools:
 #   restart:
@@ -71,5 +72,5 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
 

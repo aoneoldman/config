@@ -7,13 +7,13 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.10.101}
+        host: ${REDIS_HOST:10.10.10.100}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     datasource:
-      name: auth
-      url: jdbc:mysql://${MYSQL_HOST:10.10.10.101}:${MYSQL_PORT:3306}/ag_auth?useUnicode=true&characterEncoding=UTF8&useSSL=false
+      name: test
+      url: jdbc:mysql://${MYSQL_HOST:10.10.10.100}:${MYSQL_PORT:3306}/ag_auth?useUnicode=true&characterEncoding=UTF8&useSSL=false
       username: root
       password: 123456
       # 使用druid数据源
@@ -32,29 +32,28 @@ spring:
       testOnReturn: false
       poolPreparedStatements: true
       maxOpenPreparedStatements: 20
-   rabbitmq:
-#        host: 10.10.10.101
-#        port: 5672
-        addresses: ${RABBITMQ_ADDRESS:10.10.10.101:5672}
-        username: rabbitadmin
-        password: 123456
+    rabbitmq:
+      host: ${RABBIT_MQ_HOST:10.10.10.100}
+      port:  ${RABBIT_MQ_PORT:5672}
+      username: rabbitadmin
+      password: 123456
     zipkin:
         enabled: true
     sleuth:
         sampler:
             percentage: 1
-    cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
-  
+    #data:
+    #  elasticsearch:
+    #    cluster-name: #默认即为 elasticsearch
+    #    cluster-nodes: 10.10.10.100:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+
 mybatis:
     basepackage: com.github.wxiaoqi.security.auth.mapper
     xmlLocation: classpath:mapper/**/*.xml
     mapper-locations: "classpath*:mapper/*.xml"
 
 server:
-    port: 9803 #启动端口
+    port: 9903 #启动端口
 
 feign:
   httpclient:
@@ -65,8 +64,8 @@ feign:
 ribbon:
   eureka:
     enabled: true
-  ReadTimeout: 60000
-  ConnectTimeout: 60000
+  ReadTimeout: 120000
+  ConnectTimeout: 120000
   MaxAutoRetries: 0
   MaxAutoRetriesNextServer: 1
   OkToRetryOnAllOperations: false
@@ -82,12 +81,13 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 15000
+            timeoutInMilliseconds: 490000
 
 jwt:
   token-header: Authorization
   expire: 3600
   rsa-secret: xx1WET12^%3^(WE45
+  uuid: ${random.value}
   user-service: ace-admin
 
 client:
@@ -121,3 +121,6 @@ logging:
     ## 这里设置为info，是因为如果不设置，debug时会不断打印mq日志。
     org.springframework.integration.endpoint.SourcePollingChannelAdapter: info
 #    org.springframework.security: DEBUG
+
+interface:
+  encryption: false

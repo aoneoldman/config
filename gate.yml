@@ -1,3 +1,6 @@
+#logging:
+#  file: ./ace-gate.log
+
 spring:
     application:
         name: ace-gate
@@ -10,14 +13,13 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.10.101}
+        host: ${REDIS_HOST:10.10.10.100}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-#        host: ${RABBIT_MQ_HOST:10.10.11.82}
-#        port:  ${RABBIT_MQ_PORT:5672}
-        addresses: ${RABBITMQ_ADDRESS:10.10.10.101:5672}
+        host: ${RABBIT_MQ_HOST:10.10.10.100}
+        port:  ${RABBIT_MQ_PORT:5672}
         username: rabbitadmin
         password: 123456
     zipkin:
@@ -25,23 +27,22 @@ spring:
     sleuth:
       sampler:
         percentage: 1
-    cloud:
-      inetutils:
-        preferred-networks: ${NETWORKS_WD:10.255.0}
-#        preferred-networks: ${NETWORKS_WD:10.10.0}
- 
     http:
       multipart:
-        max-file-size: 10Mb
-        max-request-size: 10Mb
+        max-file-size: 100Mb
+        max-request-size: 100Mb
+    #data:
+    #  elasticsearch:
+    #    cluster-name: #默认即为 elasticsearch
+    #    cluster-nodes: 10.10.10.81:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
 
 server:
-    port: 9806 #启动端口
+    port: 9906 #启动端口
 
 gate:
   # 开发不进行权限校验的路径
   ignore:
-       startWith: /static,/auth/oauth/,/admin/v2/api-docs,/dict/v2/api-docs,/auth/v2/api-docs,/dict/dictValue/type/comm_sex,/admin/v1/captcha,/admin/user/findPassword,/admin/code,/crm/xmglJbxx/download,/crm/devSbhs/exportDev,/crm/exportExcel,/crm/managerBox,/crm/callCenter,/admin/sysSet/getLoadContent,/admin/scanCode/loopLogin,/admin/rabbit/,/admin/scanCode/scanLogin,/rabbitmq/rabbit/
+    startWith: /static,/auth/oauth/,/admin/v2/api-docs,/dict/v2/api-docs,/auth/v2/api-docs,/dict/dictValue/type/comm_sex,/admin/v1/captcha,/admin/user/findPassword,/admin/code,/crm/xmglJbxx/download,/crm/exportExcel,/crm/managerBox,/crm/wechat,/crm/callCenter,/admin/sysSet/getLoadContent,/admin/scanCode/loopLogin,/admin/rabbit/,/admin/scanCode/scanLogin,/rabbitmq/rabbit/
 
 auth:
   serviceId: ace-auth
@@ -105,9 +106,8 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
 #          strategy: SEMAPHORE
-
 
 #请求和响应GZIP压缩支持
 feign:
@@ -122,13 +122,3 @@ feign:
       min-request-size: 2048
     response:
       enabled: true
-sms:
-  dingtalk:
-    webhook: https://oapi.dingtalk.com/robot/send?access_token=f2b6e20ff209ab2836119241441e9809d383c93978f5bc9e15b1fe0affe00cd1
-  aliyun:
-    accessKey: LTAIwSKuYFlrGjf0
-    secretKey: XD5O8w3Dff7pWkGoakiSPlKfFSJBfb
-    channels:
-      loginCodeChannel: SMS_149990052
-      serviceStatusChange: SMS_134310585
-      findPasswordChannel: SMS_149990049

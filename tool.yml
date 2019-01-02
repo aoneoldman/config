@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.github.wxiaoqi.oss: DEBUG
 server:
-    port: 9811
+    port: 9991
 
 spring:
     profiles:
@@ -16,14 +16,10 @@ spring:
         default-property-inclusion: non_null
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.10.101}
+        host: ${REDIS_HOST:10.10.10.81}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
-    cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
     http:
       multipart:
         max-file-size: 10Mb
@@ -71,7 +67,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
 
 # 配置swagger
 swagger:

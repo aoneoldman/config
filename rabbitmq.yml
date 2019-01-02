@@ -3,7 +3,7 @@ logging:
 #        tk.mybatis: DEBUG
         com.bwzcpt.security.rabbit: DEBUG
 server:
-    port: 9809
+    port: 9909
 
 spring:
     application:
@@ -14,7 +14,7 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: crm
-        url: jdbc:mysql://10.10.10.101:3306/bw_crm?useUnicode=true&characterEncoding=UTF8&useSSL=false
+        url: jdbc:mysql://10.10.10.100:3306/bw_crm_hjzx?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: root
         password: 123456
         # 使用druid数据源
@@ -36,45 +36,32 @@ spring:
             maxOpenPreparedStatements: 20
     redis:
         database: 1
-        host: ${REDIS_HOST:10.10.10.101}
+        host: ${REDIS_HOST:10.10.10.100}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-#        host: ${RABBIT_MQ_HOST:10.99.10.103}
-#        port:  ${RABBIT_MQ_PORT:5672}
-        addresses: ${RABBITMQ_ADDRESS:10.10.10.101:5672}
-        username: rabbitadmin
-        password: 123456
-        #  消息发送到交换机确认机制,是否确认回调
-        publisher-confirms: true
-        publisher-returns: true
-        template:
-          retry:
-            #开启rabbitmq的生产端{template}重试机制,默认是false,默认重试3次
-            enabled: true
-          mandatory: false
-        listener:
-          simple:
-            retry:
-              #开启rabbitmq的消费者{listener}重试机制
-              enabled: true
-            #消费端采用手动应答
-            acknowledge-mode: manual
-        cache:
-          connection:
-            mode: channel
-          channel:
-            size: 10
+       host: 10.10.10.100
+       port: 5672
+       username: rabbitadmin
+       password: 123456
+       #  消息发送到交换机确认机制,是否确认回调
+       publisher-confirms: true
+       publisher-returns: true
+       template:
+         retry:
+           #开启rabbitmq的生产端{template}重试机制,默认是false,默认重试3次
+           enabled: true
+         mandatory: false
+       listener:
+         simple:
+           prefetch: 1
+           acknowledge-mode: auto
     zipkin:
         enabled: true
     sleuth:
         sampler:
             percentage: 1
-    cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
     http:
         multipart:
             max-file-size: 100MB
@@ -123,7 +110,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 50000
+            timeoutInMilliseconds: 490000
           strategy: SEMAPHORE
 
 
@@ -150,3 +137,37 @@ auth:
     
 mapper:
   mappers: com.github.wxiaoqi.security.common.mapper.CommonMapper
+
+sms:
+  dingtalk:
+    webhook: https://oapi.dingtalk.com/robot/send?access_token=f2b6e20ff209ab2836119241441e9809d383c93978f5bc9e15b1fe0affe00cd1
+  aliyun:
+    accessKey: LTAIwSKuYFlrGjf0
+    secretKey: XD5O8w3Dff7pWkGoakiSPlKfFSJBfb
+    channels:
+      #登录验证
+      loginCodeChannel: SMS_149990052
+      #找回密码
+      findPasswordChannel: SMS_149990049
+      #设备采购
+      deviceProcurementChannel: SMS_152506311
+      #总号段申请
+      totalSegmentApprovalChannel: SMS_152505600
+      #子号段申请
+      subSegmentApprovalChannel: SMS_152511188
+      #测试号段申请
+      testSegmentApprovalChannel: SMS_152506310
+      #项目申报
+      projectApplicationChannel: SMS_152506314
+      #产品申请
+      newProductApplicationChannel: SMS_152511191
+      #符合性验证
+      complianceVerficationChannel: SMS_152511193
+      #问题工单
+      problemSheetChannel: SMS_152511189
+      #安全码管理
+      securityCodeManagementChannel: SMS_152510149
+      #服务派工
+      serviceWorkerChannel: SMS_152506312
+      #账号通知
+      addAccountChannel: SMS_152505601

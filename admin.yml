@@ -10,8 +10,8 @@ spring:
         time-zone: GMT+8
         default-property-inclusion: non_null
     datasource:
-        name: admin
-        url: jdbc:mysql://${10.10.10.101}:${MYSQL_PORT:3306}/ag_admin?useUnicode=true&characterEncoding=UTF8&useSSL=false&useAffectedRows=true
+        name: test
+        url: jdbc:mysql://${MYSQL_HOST:10.10.10.100}:${MYSQL_PORT:3306}/ag_admin?useUnicode=true&characterEncoding=UTF8&useSSL=false
         username: root
         password: 123456
         # 使用druid数据源
@@ -31,34 +31,27 @@ spring:
             testOnReturn: false
             poolPreparedStatements: true
             maxOpenPreparedStatements: 20
-   redis:
+    redis:
         database: 1
-        host: ${REDIS_HOST:10.10.10.101}
+        host: ${REDIS_HOST:10.10.10.100}
         port: ${REDIS_PORT:6379}
         pool:
             max-active: 20
     rabbitmq:
-#        host: 10.10.10.101
-#        port: 5672
-        addresses: ${RABBITMQ_ADDRESS:10.10.10.101:5672}
-        username: rabbitadmin
-        password: 123456
+      host: ${RABBIT_MQ_HOST:10.10.10.100}
+      port:  ${RABBIT_MQ_PORT:5672}
+      username: rabbitadmin
+      password: 123456
     zipkin:
         enabled: true
     sleuth:
-        sampler:
-            percentage: 1
-    cloud:
-        inetutils:
-#            preferred-networks: ${NETWORKS_WD:10.10.0}
-           preferred-networks: ${NETWORKS_WD:10.255.0}
-   
+      sampler:
+        percentage: 1
 mybatis:
     mapper-locations: "classpath*:mapper/*.xml"
 
 server:
-    port: 9805
-
+    port: 9905
 
 # 必须配置
 feign:
@@ -87,7 +80,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 110000
+            timeoutInMilliseconds: 490000
 
 # 配置swagger
 swagger:
@@ -115,7 +108,7 @@ redis:
          maxActive: 300
          maxIdle: 100
          maxWait: 1000
-    host: ${REDIS_HOST:10.10.10.101}
+    host: ${REDIS_HOST:10.10.10.100}
     port:  ${REDIS_PORT:6379}
     password:
     timeout: 2000
@@ -134,3 +127,6 @@ merge:
 
 mapper:
   mappers: com.github.wxiaoqi.security.common.mapper.CommonMapper
+
+interface:
+  encryption: false
