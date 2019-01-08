@@ -128,3 +128,13 @@ auth:
     id: ace-device
     secret: 123456
     token-header: client-token
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS

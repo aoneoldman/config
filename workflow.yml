@@ -107,3 +107,13 @@ logging:
     com.github.wxiaoqi.security.wf: debug
 #    org.activiti: debug
 #    org.framework: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS
