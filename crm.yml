@@ -127,3 +127,13 @@ auth:
     
 mapper:
   mappers: com.github.wxiaoqi.security.common.mapper.CommonMapper
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS

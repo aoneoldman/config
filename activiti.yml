@@ -74,3 +74,13 @@ hystrix:
           thread:
             timeoutInMilliseconds: 490000
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS
+
