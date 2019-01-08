@@ -141,6 +141,16 @@ auth:
 mapper:
   mappers: com.github.wxiaoqi.security.common.mapper.CommonMapper
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      # 是否展示健康检查详情
+      show-details: ALWAYS
+
 sms:
   dingtalk:
     webhook: https://oapi.dingtalk.com/robot/send?access_token=f2b6e20ff209ab2836119241441e9809d383c93978f5bc9e15b1fe0affe00cd1
