@@ -45,7 +45,7 @@ spring:
             max-active: 20
     rabbitmq:
         host: 47.95.123.73
-        port: 25672
+        port: 5672
         username: rabbitadmin
         password: 123456
     zipkin:
