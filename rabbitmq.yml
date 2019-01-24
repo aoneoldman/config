@@ -184,3 +184,5 @@ sms:
       serviceWorkerChannel: SMS_152506312
       #账号通知
       addAccountChannel: SMS_152505601
+      #通知公告
+      sendNoticeChannel: SMS_156896088
