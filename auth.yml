@@ -54,9 +54,6 @@ mybatis:
 
 server:
     port: 9803 #启动端口
-    tomcat:
-        max-threads: 500 # Maximum amount of worker threads.
-        min-spare-threads: 50 # Minimum amount of worker threads
 
 feign:
   httpclient:
