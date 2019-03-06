@@ -116,7 +116,7 @@ swagger:
 
 # 配置用户认证和服务认证信息
 auth:
-  serviceId: ace-auth
+  serviceId: ace-auth-rwb
   user:
     token-header: Authorization
     limit-expire: 1440 # 一天过去,单位分钟
