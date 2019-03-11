@@ -186,3 +186,7 @@ sms:
       addAccountChannel: SMS_152505601
       #通知公告
       sendNoticeChannel: SMS_156896088
+      #注册验证码-小规模
+      registerNoticeChannel: SMS_159783055
+      #修改密码-小规模
+      alertPasswordChannel: SMS_159773060
