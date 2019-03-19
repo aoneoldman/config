@@ -38,9 +38,6 @@ spring:
 
 server:
     port: 9806 #启动端口
-    tomcat:
-        max-threads: 500 # Maximum amount of worker threads.
-        min-spare-threads: 50 # Minimum amount of worker threads
 
 gate:
   # 开发不进行权限校验的路径

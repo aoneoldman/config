@@ -4,9 +4,6 @@ logging:
         com.github.wxiaoqi.oss: DEBUG
 server:
     port: 9991
-    tomcat:
-        max-threads: 500 # Maximum amount of worker threads.
-        min-spare-threads: 50 # Minimum amount of worker threads
 
 spring:
     profiles:

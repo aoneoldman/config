@@ -52,9 +52,6 @@ mybatis:
 
 server:
     port: 9805
-    tomcat:
-        max-threads: 500 # Maximum amount of worker threads.
-        min-spare-threads: 50 # Minimum amount of worker threads
 
 # 必须配置
 feign:
