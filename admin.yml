@@ -52,6 +52,7 @@ mybatis:
 
 server:
     port: 9805
+    max-http-header-size: 102400
 
 # 必须配置
 feign:

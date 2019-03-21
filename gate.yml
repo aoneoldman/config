@@ -38,6 +38,7 @@ spring:
 
 server:
     port: 9806 #启动端口
+    max-http-header-size: 102400
 
 gate:
   # 开发不进行权限校验的路径
@@ -78,7 +79,7 @@ zuul:
     repository: REDIS #REDIS, JPA, IN_MEMORY
     behind-proxy: true
     default-policy: #optional - will apply unless specific policy exists
-      limit: 200
+      limit: 1000
       refresh-interval: 60 #default value (in seconds)
       type: #optional
         - user
