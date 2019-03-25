@@ -14,8 +14,8 @@ spring:
         default-property-inclusion: non_null
     datasource:
         name: crm
-        url: jdbc:mysql://${MYSQL_HOST:10.10.11.81}:${MYSQL_PORT:3306}/st_crm?useUnicode=true&characterEncoding=UTF8&useSSL=false&allowMultiQueries=true
-        username: root
+        url: jdbc:mysql://${MYSQL_HOST:10.10.11.81}:${MYSQL_PORT:3306}/smalltenant?useUnicode=true&characterEncoding=UTF8&useSSL=false&allowMultiQueries=true
+        username: smalltenant
         password: 123456
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
@@ -137,3 +137,5 @@ management:
     health:
       # 是否展示健康检查详情
       show-details: ALWAYS
+
+authurl: http://47.95.123.73:23456/smalltenant/user/auth/getUserInfo
