@@ -1,7 +1,6 @@
 server:
   port: 9808
 
-#debug: true
 logging:
     level:
 #        tk.mybatis: DEBUG

@@ -1,5 +1,7 @@
-#logging:
-#  file: ./ace-gate.log
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.github.wxiaoqi.security.gate: DEBUG
 
 spring:
     application:

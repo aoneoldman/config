@@ -1,3 +1,8 @@
+logging:
+    level:
+#        tk.mybatis: DEBUG
+        com.github.wxiaoqi.security.auth: DEBUG
+
 spring:
     application:
         name: ace-auth
